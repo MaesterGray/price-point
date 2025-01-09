@@ -1,4 +1,4 @@
-import { getLowestPrice, getHighestPrice, getAveragePrice, getEmailNotifType } from "@/lib/utils";
+import { getLowestPrice, getHighestPrice, getAveragePrice, getEmailNotifType } from "$lib/utils";
 import { connectToDb } from "$lib/mongoose";
 import Product from "$lib/models/product.model";
 import { scrapeAmazonProduct } from "$lib/scraper";
