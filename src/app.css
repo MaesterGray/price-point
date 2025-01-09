@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 222.2 84% 4.9%;
+		--muted: 210 40% 96.1%;
+		--muted-foreground: 215.4 16.3% 46.9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 222.2 84% 4.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 222.2 84% 4.9%;
+		--border: 214.3 31.8% 91.4%;
+		--input: 214.3 31.8% 91.4%;
+		--primary: 222.2 47.4% 11.2%;
+		--primary-foreground: 210 40% 98%;
+		--secondary: 210 40% 96.1%;
+		--secondary-foreground: 222.2 47.4% 11.2%;
+		--accent: 210 40% 96.1%;
+		--accent-foreground: 222.2 47.4% 11.2%;
+		--destructive: 0 72.2% 50.6%;
+		--destructive-foreground: 210 40% 98%;
+		--ring: 222.2 84% 4.9%;
+		--radius: 0.5rem;
+		--sidebar-background: 0 0% 98%;
+		--sidebar-foreground: 240 5.3% 26.1%;
+		--sidebar-primary: 240 5.9% 10%;
+		--sidebar-primary-foreground: 0 0% 98%;
+		--sidebar-accent: 240 4.8% 95.9%;
+		--sidebar-accent-foreground: 240 5.9% 10%;
+		--sidebar-border: 220 13% 91%;
+		--sidebar-ring: 217.2 91.2% 59.8%;
+	}
+
+	.dark {
+		--background: 222.2 84% 4.9%;
+		--foreground: 210 40% 98%;
+		--muted: 217.2 32.6% 17.5%;
+		--muted-foreground: 215 20.2% 65.1%;
+		--popover: 222.2 84% 4.9%;
+		--popover-foreground: 210 40% 98%;
+		--card: 222.2 84% 4.9%;
+		--card-foreground: 210 40% 98%;
+		--border: 217.2 32.6% 17.5%;
+		--input: 217.2 32.6% 17.5%;
+		--primary: 210 40% 98%;
+		--primary-foreground: 222.2 47.4% 11.2%;
+		--secondary: 217.2 32.6% 17.5%;
+		--secondary-foreground: 210 40% 98%;
+		--accent: 217.2 32.6% 17.5%;
+		--accent-foreground: 210 40% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 210 40% 98%;
+		--ring: 212.7 26.8% 83.9%;
+		--sidebar-background: 240 5.9% 10%;
+		--sidebar-foreground: 240 4.8% 95.9%;
+		--sidebar-primary: 224.3 76.3% 48%;
+		--sidebar-primary-foreground: 0 0% 100%;
+		--sidebar-accent: 240 3.7% 15.9%;
+		--sidebar-accent-foreground: 240 4.8% 95.9%;
+		--sidebar-border: 240 3.7% 15.9%;
+		--sidebar-ring: 217.2 91.2% 59.8%;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		scroll-behavior: smooth;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+@layer utilities {
+  .font-spaceGrotesk {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+	.btn {
+		@apply rounded-[30px] bg-black px-4 py-4 text-lg font-semibold text-white hover:bg-opacity-70;
+	}
+
+	.head-text {
+		@apply mt-4 text-6xl font-bold leading-[72px] tracking-[-1.2px] text-gray-900;
+	}
+
+	.section-text {
+		@apply text-[32px] font-semibold ;
+	}
+
+	.small-text {
+		@apply flex gap-2 text-sm font-medium text-primary;
+	}
+
+	.paragraph-text {
+		@apply text-xl leading-[30px] text-gray-600;
+	}
+
+	.hero-carousel {
+		@apply relative h-[700px] w-full max-w-[560px] rounded-[30px] bg-[#F2F4F7] py-5 pb-5 sm:mx-auto sm:px-10 sm:pt-20;
+	}
+
+	.carousel {
+		@apply flex h-[700px] flex-col-reverse;
+	}
+
+	.carousel .control-dots {
+		@apply static !important;
+	}
+
+	.carousel .control-dots .dot {
+		@apply bottom-0 h-[10px] w-[10px] rounded-full bg-[#D9D9D9] !important;
+	}
+
+	.carousel .control-dots .dot.selected {
+		@apply bg-[#475467] !important;
+	}
+
+	.trending-section {
+		@apply flex flex-col gap-10 px-6 py-24 md:px-20;
+	}
+
+	/* PRODUCT DETAILS PAGE STYLES */
+	.product-container {
+		@apply flex flex-col flex-wrap gap-16 px-6 py-24 md:px-20 ;
+	}
+
+	.product-image {
+		@apply max-w-full flex-grow rounded-[17px] border border-[#CDDBFF] py-16 xl:max-w-[50%];
+	}
+
+	.product-info {
+		@apply flex flex-wrap items-center gap-10 border-y border-y-[#E4E4E4] py-6;
+	}
+
+	.product-hearts {
+		@apply rounded-sm flex items-center gap-2 bg-[#FFF0F0] px-3 py-2;
+	}
+
+	.product-stars {
+		@apply flex items-center gap-2 rounded-[27px] bg-[#FBF3EA] px-3 py-2;
+	}
+
+	.product-reviews {
+		@apply bg-white flex items-center gap-2 rounded-[27px] px-3 py-2;
+	}
+
+	/* MODAL */
+	.dialog-container {
+		@apply fixed inset-0 z-10 overflow-y-auto bg-black bg-opacity-60;
+	}
+
+	.dialog-content {
+		@apply my-8 inline-block w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all;
+	}
+
+	.dialog-head_text {
+		@apply mt-4 text-lg font-semibold leading-[24px] ;
+	}
+
+	.dialog-input_container {
+		@apply mt-3 flex items-center gap-2 rounded-[27px] border border-gray-300 px-5 py-3;
+	}
+
+	.dialog-input {
+		@apply shadow-sm flex-1 rounded-[27px] border border-none border-gray-300 pl-1 text-base text-gray-500 focus:outline-none;
+	}
+
+	.dialog-btn {
+		@apply mt-8 rounded-lg border border-black bg-black  px-5 py-3 text-base font-semibold text-white;
+	}
+
+	/* NAVBAR */
+	.nav {
+		@apply flex items-center justify-between px-6 py-4 md:px-20;
+	}
+
+	.nav-logo {
+		@apply font-spaceGrotesk text-[21px] font-bold ;
+	}
+
+	/* PRICE INFO */
+	.price-info_card {
+		@apply rounded-sm bg-white flex min-w-[200px] flex-1 flex-col gap-2 border-l-[3px] px-5 py-4 ;
+	}
+
+	/* PRODUCT CARD */
+	.product-card {
+		@apply flex w-full flex-1 flex-col gap-4 rounded-md sm:w-[292px] sm:max-w-[292px];
+	}
+
+	.product-card_img-container {
+		@apply relative flex flex-1 flex-col gap-5 rounded-md p-4;
+	}
+
+	.product-card_img {
+		@apply h-full max-h-[250px] w-full bg-transparent object-contain;
+	}
+
+	.product-title {
+		@apply truncate text-xl font-semibold leading-6 ;
+	}
+
+	/* SEARCHBAR INPUT */
+	.searchbar-input {
+		@apply shadow-sm w-full min-w-[200px] flex-1 rounded-lg border border-gray-300 p-3 text-base text-gray-500 focus:outline-none;
+	}
+
+	.searchbar-btn {
+		@apply shadow-sm rounded-lg border border-gray-900 bg-gray-900 px-5 py-3 text-base font-semibold text-white hover:opacity-90 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40;
+	}
+}
