@@ -1,38 +1,133 @@
-# sv
+# PriceWise - Amazon Price Tracker
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A full-stack web application built with SvelteKit that helps users track Amazon product prices and get notified when prices drop. Perfect for beginners learning SvelteKit, TypeScript, and MongoDB!
 
-## Creating a project
+## 🚀 Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **User Authentication**: Sign up and sign in with email
+- **Product Tracking**: Add Amazon product URLs to track their prices
+- **Price History**: View price trends over time
+- **Email Notifications**: Get notified when:
+  - Product price drops below a threshold
+  - Product reaches its lowest price
+  - Product comes back in stock
+- **Dashboard**: View all your tracked products in one place
 
-```bash
-# create a new project in the current directory
-npx sv create
+## 🛠️ Tech Stack
 
-# create a new project in my-app
-npx sv create my-app
+- **Frontend**: SvelteKit, TypeScript, Tailwind CSS
+- **Backend**: SvelteKit API routes
+- **Database**: MongoDB with Mongoose
+- **Authentication**: Custom email-based auth
+- **Email Service**: MailerSend
+- **Web Scraping**: Cheerio
+
+## 📋 Prerequisites
+
+Before you begin, ensure you have:
+- Node.js (v16 or later)
+- MongoDB Atlas account (or local MongoDB)
+- MailerSend account (for email notifications)
+
+## 🚀 Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/pricewise.git
+   cd pricewise
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   Create a `.env` file in the root directory with:
+   ```
+   MONGODB_URI=your_mongodb_connection_string
+   MAILER_SEND_API_KEY=your_mailersend_api_key
+   ```
+
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
+
+## 📚 Project Structure
+
+```
+src/
+├── lib/
+│   ├── components/     # Reusable UI components
+│   ├── models/         # MongoDB models
+│   ├── server/         # Server-side utilities
+│   ├── types/          # TypeScript type definitions
+│   └── utils/          # Helper functions
+├── routes/
+│   ├── dashboard/      # Dashboard page
+│   ├── signin/         # Sign in page
+│   ├── signup/         # Sign up page
+│   └── +page.svelte    # Home page
+└── app.d.ts            # Type declarations
 ```
 
-## Developing
+## 🎯 Key Concepts Covered
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. **SvelteKit Basics**
+   - File-based routing
+   - Server-side rendering
+   - Form actions
+   - Page load functions
 
-```bash
-npm run dev
+2. **TypeScript Integration**
+   - Type definitions
+   - Type safety
+   - Interface usage
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+3. **Database Integration**
+   - MongoDB setup
+   - Mongoose schemas
+   - CRUD operations
 
-## Building
+4. **Authentication**
+   - Session management
+   - Protected routes
+   - User validation
 
-To create a production version of your app:
+5. **Web Scraping**
+   - Amazon product data extraction
+   - Price tracking
+   - Error handling
 
-```bash
-npm run build
-```
+## 📝 Tutorial Series
 
-You can preview the production build with `npm run preview`.
+This project is part of a tutorial series covering:
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+1. Project Setup & Basic Structure
+2. User Authentication
+3. Database Integration
+4. Product Tracking
+5. Email Notifications
+6. Dashboard Implementation
+7. Deployment
+
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- SvelteKit team for the amazing framework
+- MongoDB for the database
+- MailerSend for email services
+- Cheerio for web scraping capabilities
+
+## 📞 Support
+
+If you have any questions or need help, feel free to:
+- Open an issue
+- Check out the tutorial videos
+
+Happy coding! 🚀

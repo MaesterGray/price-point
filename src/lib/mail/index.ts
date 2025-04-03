@@ -9,10 +9,10 @@ export const sendEmail = async (type:NotificationType,product:EmailProductInfo,u
  
   const THRESHOLD_PERCENTAGE = 40
   const mailerSend = new MailerSend({apiKey:MAILER_SEND_API_KEY})
-  const sentFrom = new Sender('chike@trial-3vz9dle8331lkj50.mlsender.net','Chike')
-  const recipients = []
+  const sentFrom = new Sender('Chike@trial-vz9dleme5p64kj50.mlsender.net','Chike')
+  const recipients:Recipient[] = []
   
-  userEmails.forEach((email)=>{
+  userEmails.forEach((email:string)=>{
     recipients.push(new Recipient(email))
   })
   const emailParams = new EmailParams()
@@ -73,7 +73,7 @@ export const sendEmail = async (type:NotificationType,product:EmailProductInfo,u
         throw new Error('Invalid Notification type.')
   }
      
-      emailParams .from.email='MS_uFLGPb@trial-3vz9dle8331lkj50.mlsender.net'
+      emailParams .from.email='MS_H2sCPv@trial-vz9dleme5p64kj50.mlsender.net'
     return mailerSend.email.send(emailParams)
  
 

@@ -3,10 +3,11 @@
 	import Priceinfocard from '$lib/components/Priceinfocard.svelte';
 	import ProductCard from '$lib/components/Productcard.svelte';
 	import { formatNumber } from '$lib/utils';
-	import Modal from '$lib/components/Modal.svelte';
+	import {Button} from '$lib/components/ui/button'
 	import { toast } from 'svelte-sonner';
+	import type { User } from '$lib/types';
 	let { data ,form}= $props();
-	import { page } from '$app/state';
+	import { enhance } from '$app/forms';
 	if(form){
 		if (form.error === 'Failed to scrape product') {
 		  toast.error('Failed to scrape product')
@@ -15,6 +16,15 @@
 		}else{
 		  toast.error('Server Error : check network settings')
 		}}
+
+		const userEmail = data.user.email
+		let isTracking = $derived.by(()=>{
+			if(data.product.users){
+				return data.product.users?.some((user:User)=>user.email === userEmail)
+			}
+			return false
+		})
+		let loading = $state(false)
 </script>
 
 <div class="product-container">
@@ -147,8 +157,30 @@
 			/>
 		  </div>
 		</div>
-
-		<Modal productId={page.params.product_id} />
+		<form 
+		action={isTracking?'?/removeUserEmailFromProduct':' ?/addUserEmailToProduct'} 
+		class="flex flex-col p-3" 
+		method='post'
+		use:enhance={()=>{
+			loading = true
+			return async ({update,result})=>{
+				await update()
+				loading = false
+				if(result.data.success){
+					toast.success(result.data.message)
+				}else{
+					toast.error(result.data.message)
+				}
+			}
+		}}>
+			{#if !data.user}
+			<p class="text-sm text-red-500 opacity-50">You must be logged in to track a product</p>
+			{/if}
+			<Button type='submit' 
+			disabled={!data.user||loading}>
+			{isTracking ? loading?'Untracking...':'UnTrack' : loading?'Tracking...':'Track'}
+		</Button>
+		</form>
 	  </div>
 	</div>
 

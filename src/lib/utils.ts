@@ -4,7 +4,7 @@ export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
-import type { PriceHistoryItem,Product } from "$lib/types";
+import type { PriceHistoryItem,TProduct } from "$lib/types";
 
 const Notification = {
   WELCOME: 'WELCOME',
@@ -15,7 +15,7 @@ const Notification = {
 
 const THRESHOLD_PERCENTAGE = 40;
 
-export function extractPrice(...elements){
+export function extractPrice(...elements:any[]){
     for (const element of elements){
         const priceText = element.text().trim()
 
@@ -36,7 +36,7 @@ export function extractDescription($:any) {
       const elements = $(selector);
       if (elements.length > 0) {
         const textContent = elements
-          .map((_, element) => $(element).text().trim())
+          .map((_:any, element:any) => $(element).text().trim())
           .get()
           .join("\n");
         return textContent;
@@ -47,7 +47,7 @@ export function extractDescription($:any) {
     return "";
   }
   
-export function extractCurrency(element){
+export function extractCurrency(element:any){
     const currencyText = element.text().trim().slice(0,1);
     return currencyText ? currencyText : '';
 }
@@ -84,8 +84,8 @@ export function getHighestPrice(priceList: PriceHistoryItem[]) {
 }
 
 export const getEmailNotifType = (
-  scrapedProduct: Product,
-  currentProduct: Product
+  scrapedProduct: TProduct,
+  currentProduct: TProduct
 ) => {
   const lowestPrice = getLowestPrice(currentProduct.priceHistory);
 
@@ -123,24 +123,4 @@ export function removeDollarSign(price: string): string {
     return match ? match[1] : '';
 }
 
-export async function addUserEmailToProduct(productId: string, userEmail: string) {
-  try {
-    connectToDb()
-    const product = await Product.findById(productId);
 
-    if(!product) return;
-
-    const userExists = product.users.some((user: User) => user.email === userEmail);
-
-    if(!userExists) {
-      product.users.push({ email: userEmail });
-
-      await product.save();
-    await sendEmail('WELCOME',{title:product.title,url:product.url},[userEmail]);
-      
-
-    }
-  } catch (error) {
-    console.log(error);
-  }
-}

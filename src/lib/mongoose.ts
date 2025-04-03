@@ -6,7 +6,7 @@ let isConnected = false
 export const connectToDb = async ()=>{
     mongoose.set('strictQuery',true)
 
-    if(!MONGODB_URI) return console.log('MONGODN_URI is not defined')
+    if(!MONGODB_URI) return console.log('MONGODB_URI is not defined')
 
         if(isConnected) return console.log('using existing database connection')
 

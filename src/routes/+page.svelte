@@ -1,6 +1,5 @@
 <script>
 	import Productcard from "$lib/components/Productcard.svelte";
-    import Searchbar from "$lib/components/Searchbar.svelte";
     import Herocarousel from "$lib/components/Herocarousel.svelte";
     import { toast } from "svelte-sonner";
     let {form,data} = $props()
@@ -19,12 +18,7 @@
       <div class="flex flex-col justify-center"> 
         <p class="small-text">
           Smart Shopping Starts Here:
-          <img 
-            src="/assets/icons/arrow-right.svg"
-            alt="arrow-right"
-            width={16}
-            height={16}
-          />
+         
         </p>
 
         <h1 class="head-text">
@@ -33,10 +27,9 @@
         </h1>
 
         <p class="mt-6">
-          Powerful, self-serve product and growth analytics to help you convert, engage, and retain more.
+          Powerful, self-service product and growth analytics to help you convert, engage, and retain more.
         </p>
 
-        <Searchbar />
       </div>
 
       <Herocarousel /> 

@@ -4,6 +4,7 @@ import Product from "$lib/models/product.model";
 import { scrapeAmazonProduct } from "$lib/scraper";
 import {  sendEmail } from "$lib/mail";
 import { json } from "@sveltejs/kit";
+import type {User} from '$lib/types'
 export const GET = async () => {
 	try {
 		await connectToDb();
@@ -56,8 +57,8 @@ export const GET = async () => {
 			  };
 			  // Construct emailContent
 			  // Get array of user emails
-			  const userEmails = updatedProduct.users.map((user) => user.email);
-			  userEmails.forEach(async (email) => {
+			  const userEmails = updatedProduct.users.map((user:User) => user.email);
+			  userEmails.forEach(async (email:string) => {
 				await sendEmail(emailNotifType,productInfo, [email]);
 			  });
 			  // Send email notification

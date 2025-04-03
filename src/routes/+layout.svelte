@@ -3,11 +3,9 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import { Toaster } from 'svelte-sonner';
 	import 'nprogress/nprogress.css';
-	import { navigating } from '$app/state';
 	import { afterNavigate,beforeNavigate } from '$app/navigation';
 	import NProgress from 'nprogress';
-	import { browser } from '$app/environment';
-	let { children } = $props();
+	let { children ,data} = $props();
 	
 	beforeNavigate(() => {
 		NProgress.start();
@@ -21,10 +19,10 @@
 	
 </script>
 
-<Toaster/>
+<Toaster richColors/>
 <div class=" font-Inter">
 	<main class=" max-w-10xl mx-auto">
-		<Navbar />
+		<Navbar user={data.user}/>
 		{@render children()}
 	</main>
 </div>

@@ -106,14 +106,14 @@
 	}
 
 	.hero-carousel {
-		@apply relative h-[700px] w-full max-w-[560px] rounded-[30px] bg-[#F2F4F7] py-5 pb-5 sm:mx-auto sm:px-10 sm:pt-20;
+		@apply relative h-[500px] sm:h-[700px] w-full max-w-[560px] rounded-[30px] bg-[#F2F4F7] py-2 sm:py-5 pb-2 sm:pb-5 sm:mx-auto sm:px-10 sm:pt-20;
 	}
 
 	.carousel {
-		@apply flex h-[700px] flex-col-reverse;
+		@apply flex h-[500px] sm:h-[700px] flex-col-reverse;
 	}
 
-	.carousel .control-dots {
+	.carousel .control-dots { 
 		@apply static !important;
 	}
 

@@ -1,0 +1,2 @@
+Make it impossible for non signed in users to track products
+Make a piece of ui the on the dynamic project page that can be clicked to untrack a project if it's already being tracked by the user and vice versa
