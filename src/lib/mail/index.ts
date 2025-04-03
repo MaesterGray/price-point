@@ -2,7 +2,7 @@
 
 import type {  EmailProductInfo, NotificationType } from '$lib/types';
 import { MailerSend, Sender,Recipient ,EmailParams} from 'mailersend';
-import { MAILER_SEND_API_KEY } from '$env/static/private';
+import { MAILER_SEND_API_KEY,MAILER_SEND_USERNAME } from '$env/static/private';
 
 
 export const sendEmail = async (type:NotificationType,product:EmailProductInfo,userEmails:string[]) => {
@@ -73,7 +73,7 @@ export const sendEmail = async (type:NotificationType,product:EmailProductInfo,u
         throw new Error('Invalid Notification type.')
   }
      
-      emailParams .from.email='MS_H2sCPv@trial-vz9dleme5p64kj50.mlsender.net'
+      emailParams .from.email=MAILER_SEND_USERNAME
     return mailerSend.email.send(emailParams)
  
 
