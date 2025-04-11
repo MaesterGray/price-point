@@ -2,16 +2,8 @@
 	import Productcard from "$lib/components/Productcard.svelte";
     import Herocarousel from "$lib/components/Herocarousel.svelte";
     import { toast } from "svelte-sonner";
-    let {form,data} = $props()
-    if(form){
-        if (form.error === 'Failed to scrape product') {
-          toast.error('Failed to scrape product')
-        }else if(form.success){
-          toast.success('Product scraped successfully')
-        }else{
-          toast.error('Server Error : check network settings')
-        }
-      }
+    let {data} = $props()
+  
 </script>
 <section class="px-6 md:px-20 py-24">
     <div class="flex max-xl:flex-col gap-16">
